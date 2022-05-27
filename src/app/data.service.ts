@@ -17,7 +17,7 @@ export class DataService {
   */
   saveContactWay(contact: Contact): void {
     //Se hace una petición post al servidor
-    this.httpClient.post('http://localhost:3500/', contact).subscribe(
+    this.httpClient.post('https://beta.maxipublica.com/testing/leads/', contact).subscribe(
       res => {
         console.log(res);
         alert(JSON.stringify(res));
