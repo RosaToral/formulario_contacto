@@ -1,0 +1,70 @@
+<div class="row">
+  <span class="title ps-4">Enviar mensaje</span>
+  <app-modal [name]="name"></app-modal>
+</div>
+
+<div class="row">
+  <div class="col-md-7 mb-5"> 
+    <div class="container">
+      <!--Formulario-->
+      <form class="row needs-validation me-4" id="formulario" method="post">
+        <!--Campos: nombre, email y teléfono-->
+        <div class="d-md-flex flex-row justify-content-between">
+          <div class="pe-2 pb-3 flex-content">
+            <input class="form-control input-style border text-size" type="text" name="name" placeholder="Nombre*" [(ngModel)]="name" required>
+            <div class="invalid-feedback">Debe escribir su nombre</div>
+          </div>
+          <div class="px-2 pb-3 flex-content">
+            <input class="form-control input-style border text-size" type="email" name="email" placeholder="Correo*" [(ngModel)]="email" required>
+            <div class="invalid-feedback">Este no es un formato válido para correos electrónicos</div>
+          </div>
+          <div class="ps-2 pb-3 flex-content">
+            <input class="form-control input-style border text-size" type="text" pattern="[0-9]{10}" maxlength="10" name="phoneNumber" placeholder="Teléfono*" [(ngModel)]="phoneNumber" required>
+            <div class="invalid-feedback">Este no es un formato válido para números telefónicos</div>
+          </div>
+        </div>
+
+        <!--Campo mensaje-->
+        <div class="d-md-flex flex-row mb-3">
+          <textarea class="form-control input-style border" style="height: 190px; resize: none;" name="message" placeholder="Mensaje*" [(ngModel)]="message" required></textarea>
+          <div class="invalid-feedback">Debe escribir un mensaje</div>
+        </div>
+
+        <!--Aceptación de términos y condiciones y botón de envío-->
+        <div class="d-md-flex flex-row mb-3">
+          <div class="col-md-8 p-2">
+            <div class="form-check">
+              <input class="form-check-input" style="width: 1em" type="checkbox" name="accepted" value="" id="flexCheckDefault" [(ngModel)]="accepted" required>
+              <label class="form-check-label" for="flexCheckDefault">Acepto la <a class="text-orange" href="/">política de privacidad</a></label>
+              <div class="invalid-feedback">Debe aceptar las condiciones antes de continuar</div>
+            </div>
+          </div>
+
+          <div class="col-md-4 p-2">
+            <input class="btn btn-orange float-end" type="submit" value="Enviar" (click)="validateFormat()" >
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <!--Firma-->
+  <div class="col-md-5">
+    <div class="container border">
+      <div class="row p-4">
+        <div class="col-8">
+          <p class="fs-5 text" style="font-weight: bold;">Grupo Mx</p>
+          <p class="text-orange text-size text">Boulevard Adolfo López Mateos 57</p>
+          <p class="text-size text">
+            El portero atizapan de Zaragoza
+            México, México CP 52957
+          </p>
+        </div>
+        <div class="col-4">
+          <img src="../assets/images/blank.png" class="float-end rounded" height="100" width="100" alt="default image">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
